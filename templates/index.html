@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Prediksi Diabetes</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendors/css/vendor.bundle.base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('home') }}">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('data') }}">
+                <span class="menu-title">Data Diabetes</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('prediksi') }}">
+                <span class="menu-title">Prediction</span>
+                <i class="mdi mdi-code-less-than menu-icon"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title">
+                 Dashboard
+              </h3>
+            </div>
+            <div class="row">
+              <div class="col-md-12 stretch-card grid-margin">
+                <div class="card bg-gradient-danger card-img-holder text-white">
+                  <div class="card-body">
+                    <div class="text-center mb-3">
+                      <img src="https://d2jx2rerrg6sh3.cloudfront.net/images/Article_Images/ImageForArticle_22828_16576304191636974.jpg" class="card-img" alt="gambar aplikasi" style="width: 100%; max-width: 300px;">
+                    </div>
+                    <h4 class="font-weight-normal mb-3 text-center">Aplikasi Prediction Diabetes</h4>
+                    <p class="card-text" style="text-align: justify;">
+                      Aplikasi ini dirancang untuk membantu Anda menilai risiko diabetes berdasarkan berbagai gejala klinis dan parameter kesehatan yang Anda miliki. Aplikasi ini memungkinkan Anda untuk memasukkan informasi mengenai gejala yang Anda alami, seperti sering merasa haus, sering buang air kecil, dan penurunan berat badan yang tidak dapat dijelaskan, serta parameter kesehatan lainnya seperti indeks massa tubuh (BMI), tekanan darah, kadar glukosa darah, dan riwayat kesehatan keluarga.
+                    </p>
+                  
+                    <p class="card-text" style="text-align: justify;">
+                        Aplikasi ini memanfaatkan kekuatan dua model prediktif yang canggih: Random Forest Classifier dan Multi-layer Perceptron Classifier. Random Forest Classifier adalah model pembelajaran mesin yang kuat dan fleksibel, yang mampu menangani data dengan berbagai variabel dan memberikan prediksi yang akurat berdasarkan kombinasi dari banyak pohon keputusan. Di sisi lain, Multi-layer Perceptron Classifier adalah jenis jaringan saraf tiruan yang dapat memodelkan hubungan non-linear yang kompleks dalam data Anda, sehingga mampu memberikan prediksi yang lebih mendalam dan presisi.
+                    </p>
+                    
+                    <p class="card-text" style="text-align: justify;">
+                        Dengan menggabungkan hasil dari kedua model ini, aplikasi ini tidak hanya meningkatkan akurasi prediksi tetapi juga memberikan perspektif yang lebih luas terhadap risiko kesehatan Anda. Tujuannya adalah untuk memberikan Anda wawasan yang lebih baik mengenai kondisi kesehatan Anda, sehingga Anda dapat mengambil tindakan pencegahan yang tepat, berkonsultasi dengan profesional kesehatan, dan menjalani gaya hidup yang lebih sehat untuk mengurangi risiko diabetes.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    <script src="{{ url_for('static', filename='assets/vendors/js/vendor.bundle.base.js') }}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{ url_for('static', filename='assets/vendors/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/jquery.cookie.js') }}"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{ url_for('static', filename='assets/js/off-canvas.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/hoverable-collapse.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/misc.js') }}"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page -->
+    <script src="{{ url_for('static', filename='assets/js/dashboard.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/todolist.js') }}"></script>
+    <!-- End custom js for this page -->
+  </body>
+</html>

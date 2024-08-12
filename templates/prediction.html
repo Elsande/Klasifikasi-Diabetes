@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Prediksi Diabetes</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendors/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/vendors/css/vendor.bundle.base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='assets/css/style.css') }}">
+  </head>
+  <body>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('home') }}">
+                <span class="menu-title">Dashboard</span>
+                <i class="mdi mdi-home menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('data') }}">
+                <span class="menu-title">Data Diabetes</span>
+                <i class="mdi mdi-table-large menu-icon"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('prediksi') }}">
+                <span class="menu-title">Prediction</span>
+                <i class="mdi mdi-code-less-than menu-icon"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> FORM PREDIKSI DIABETES</h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Form Prediction</li>
+                </ol>
+              </nav>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body">
+                    <!-- Form untuk prediksi -->
+                    <form class="form-sample" id="prediction-form" action="{{ url_for('prediksi') }}" method="post">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <!-- Pilih Polidipsia -->
+                          <div class="form-group">
+                            <label for="polidpsia">Polidipsia:</label>
+                            <select class="form-control" name="polidpsia" id="polidpsia" required>
+                              <option value="Ya">Ya</option>
+                              <option value="Tidak">Tidak</option>
+                            </select>
+                          </div>
+                          <!-- Pilih Poliuria -->
+                          <div class="form-group">
+                            <label for="poliuria">Poliuria:</label>
+                            <select class="form-control" name="poliuria" id="poliuria" required>
+                              <option value="Ya">Ya</option>
+                              <option value="Tidak">Tidak</option>
+                            </select>
+                          </div>
+                          <!-- Pilih Luka Lamban Sembuh -->
+                          <div class="form-group">
+                            <label for="luka_lamban_sembuh">Luka Lamban Sembuh:</label>
+                            <select class="form-control" name="luka_lamban_sembuh" id="luka_lamban_sembuh" required>
+                              <option value="Ya">Ya</option>
+                              <option value="Tidak">Tidak</option>
+                            </select>
+                          </div>
+                          <!-- Pilih Berat Badan Turun -->
+                          <div class="form-group">
+                            <label for="berat_badan_turun">Berat Badan Turun:</label>
+                            <select class="form-control" name="berat_badan_turun" id="berat_badan_turun" required>
+                              <option value="Ya">Ya</option>
+                              <option value="Tidak">Tidak</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <!-- Input GDP -->
+                          <div class="form-group">
+                            <label for="gdp">GDP (Glukosa Darah Puasa):</label>
+                            <input type="number" class="form-control" name="gdp" id="gdp" step="0.01" placeholder="Masukkan GDP" required>
+                          </div>
+                          <!-- Input GDS -->
+                          <div class="form-group">
+                            <label for="gds">GDS (Glukosa Darah Sewaktu):</label>
+                            <input type="number" class="form-control" name="gds" id="gds" step="0.01" placeholder="Masukkan GDS" required>
+                          </div>
+                          <button type="submit" class="btn btn-primary">Predict</button> 
+                        </div>
+                      </div>
+                    </form>
+                    <!-- Hasil Prediksi -->
+                    <div class="row mt-4">
+                      <div class="col-md-12">
+                        <div class="card bg-gradient-info text-white">
+                          <div class="card-body">
+                            <h4>Hasil Prediksi</h4>
+                            {% if prediction_done %}
+                              <p><strong>Random Forest Prediction: </strong> {{ rfc_status }}</p>
+                              <p><strong>Multi-layer Perceptron Prediction: </strong> {{ mlp_status }}</p>
+                              <p><strong>Final Prediction: </strong> {{ status_prediction }}</p>
+                            {% else %}
+                              <p>Silakan isi form untuk mendapatkan hasil prediksi.</p>
+                            {% endif %}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- End Hasil Prediksi -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- End custom js for this page -->
+    <script src="{{ url_for('static', filename='assets/vendors/js/vendor.bundle.base.js') }}"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="{{ url_for('static', filename='assets/js/off-canvas.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/hoverable-collapse.js') }}"></script>
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="{{ url_for('static', filename='assets/js/file-upload.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/misc.js') }}"></script>
+    <!-- endinject -->
+  </body>
+</html>
